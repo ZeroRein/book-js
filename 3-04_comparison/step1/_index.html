@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3-05_logical</title>
+<title>3-04_comparison</title>
 <link href="../../_common/images/favicon.ico" rel="shortcut icon">
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
 <link href="../../_common/css/style.css" rel="stylesheet">
@@ -11,8 +11,8 @@
 <body>
 <header>
 <div class="container">
-<h1>時間で異なるメッセージを表示する</h1>
-<h2>2つ以上の条件式で1つの条件を作る</h2>
+<h1>数当てゲーム</h1>
+<h2>さまざまな比較演算子を使用する</h2>
 </div><!-- /.container -->
 </header>
 <main>
@@ -30,15 +30,19 @@
 <script>
 'use strict';
 
-const hour = new Date().getHours();
-
-if(hour >= 19 && hour < 21) {
-    window.alert('お弁当30%OFF!');
-} else if(hour === 9 || hour === 15) {
-    window.alert('お弁当1個買ったら1個おまけ！');
+const number = Math.floor(Math.random() * 6);
+const answer = parseInt(window.prompt('数当てゲーム。0〜5の数字を入力してね。'));
+let message;
+if(answer === number) {
+    message = 'あたり！';
+} else if(answer < number) {
+    message = '残念でした！もっと大きい';
+} else if(answer > number) {
+    message = '残念でした！もっと小さい';
 } else {
-    window.alert('お弁当はいかがですか');
-}    
+    message = '0〜5の数字を入力してね。';
+}
+window.alert(message);
 </script>
 </body>
 </html>
